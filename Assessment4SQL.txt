@@ -1,0 +1,44 @@
+
+
+/* JASON GARDNER */
+
+
+CREATE DATABASE student_db
+
+USE student_db
+
+CREATE TABLE students (
+id int not null primary key identity(1,1),
+firstname nvarchar(20) NOT NULL,
+lastname nvarchar(20) NOT NULL,
+email nvarchar(30),
+phone nvarchar(30)
+);
+
+INSERT INTO STUDENTS (firstname, lastname, email, phone)
+VALUES ('Jane','Doe','one@gc.com','313-555-1212'),
+('James','Smith','two@gc.com','313-555-1213'),
+('Susan','Jones','three@gc.com','313-555-1214'),
+('Javier','Rodriguez','four@gc.com','313-555-1215'),
+('DeAndre','Taylor','five@gc.com','313-555-1216')
+
+UPDATE STUDENTS SET LASTNAME='Chirpus' WHERE ID='4'
+
+DELETE FROM STUDENTS WHERE ID = '5'
+
+SELECT * FROM STUDENTS WHERE FIRSTNAME = 'JAMES'
+
+SELECT * FROM STUDENTS 
+WHERE FIRSTNAME = 'SUSAN'
+AND LASTNAME = 'JONES'
+
+SELECT * FROM STUDENTS WHERE ID < 3
+
+SELECT * FROM STUDENTS
+WHERE FIRSTNAME NOT LIKE ('JAVIER')
+
+UPDATE STUDENTS SET PHONE=NULL WHERE ID='1'
+
+DROP TABLE STUDENTS
+
+

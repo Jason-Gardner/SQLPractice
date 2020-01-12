@@ -1,0 +1,50 @@
+Northwind SQL Lab
+
+1. SELECT * FROM CUSTOMERS
+
+2. BLANK
+
+3. SELECT * FROM CUSTOMERS ORDER BY COUNTRY
+
+4. SELECT * FROM CUSTOMERS WHERE CUSTOMERID LIKE 'BL%'
+
+5. SELECT TOP 100 * FROM ORDERS
+
+6. Select * FROM CUSTOMERS WHERE POSTALCODE IN ('1010', '3012', '12209', '05023')
+
+7. SELECT * FROM ORDERS WHERE SHIPREGION IS not NULL
+
+8. SELECT * FROM CUSTOMERS ORDER BY COUNTRY, CITY
+
+9. INSERT INTO Customers(CUSTOMERID, COMPANYNAME, CONTACTNAME) VALUES('ZZZZZ', 'THIS IS A TEST', 'JIM BOB');
+
+10. UPDATE ORDERS
+SET ShipRegion = 'Euro Zone'
+WHERE ShipCountry = 'France' 
+
+11. DELETE FROM [Order Details] WHERE Quantity = 1
+
+12. SELECT MIN (QUANTITY) as MinQty, MAX (QUANTITY) as MaxQty,AVG (QUANTITY) as AvgQty, from [Order Details]
+
+13. Select OrderID.... (answer 12)
+
+14. SELECT CustomerID FROM Orders WHERE ORDERID LIKE '10290'
+
+15. 
+SELECT * FROM Orders o
+inner join customers c
+on o.CustomerId = c.CustomerId
+
+SELECT *
+FROM Orders
+LEFT JOIN Customers
+ON ORDERS.CustomerID = Customers.CustomerID;
+
+SELECT *
+FROM Orders
+RIGHT JOIN Customers
+ON ORDERS.CustomerID = Customers.CustomerID;
+
+16. SELECT FirstName FROM Employees WHERE ReportsTo IS NULL
+
+17. SELECT FirstName FROM Employees WHERE ReportsTo LIKE '2'

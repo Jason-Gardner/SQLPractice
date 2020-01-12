@@ -1,0 +1,72 @@
+Write   SQL   Queries   for   the   following: 
+
+1.Select   all   records   from   the   customers   table. 
+SELECT * FROM CUSTOMERS
+
+2.Find   all   customers   living   in   London   or   Paris 
+SELECT * FROM CUSTOMERS WHERE CITY in ('LONDON', 'PARIS')
+
+3.Make   a   list   of   cities   where   customers   are   coming   from.   The   list   should   not   have any   duplicates   or   nulls.
+SELECT DISTINCT CITY FROM CUSTOMERS
+WHERE CITY IS NOT NULL;
+
+4.Show   a   sorted   list   of   employees’   first   names.
+SELECT FirstName FROM Employees ORDER BY FirstName ASC 
+
+5.Find   the   average   of   employees’   salaries.
+VERSION WE ARE USING DOES NOT HAVE A SALARY COLUMN
+
+6.Show   the   first   name   and   last   name   for   the   employee   with   the   highest   salary.
+AGAIN, WE DO NOT HAVE THIS INFORMATION
+ 
+7.Find   a   list   of   all   employees   who   have   a   BA 
+SELECT * 
+FROM Employees 
+WHERE NOTES LIKE ('%BA%')
+AND NOTES NOT LIKE ('%MBA%')
+
+------------
+
+SELECT * from employees where notes like ('% BA %')
+
+8.Find   total   for   each   order 
+SELECT ORDERID, FORMAT(SUM (UNITPRICE * QUANTITY * (1 - DISCOUNT)), 'N2')
+FROM [Order Details]
+group by OrderID
+
+
+9.Get   a   list   of   all   employees   who   got   hired   between   1/1/1994   and   today
+SELECT * 
+FROM Employees 
+Where HireDate between '1994-01-01' and GETDATE()
+ 
+10.Find   how   long   employees   have   been   working   for   Northwind   (in   years!)
+Select FirstName, LastName, DATEDIFF(year, HireDate, GetDate()) as [Years Worked] from Employees
+
+11.Get   a   list   of   all   products   sorted   by   quantity   (ascending   and   descending   order)
+SELECT PRODUCTID, PRODUCTNAME, UNITSINSTOCK FROM PRODUCTS ORDER BY UNITSINSTOCK ASC
+SELECT PRODUCTID, PRODUCTNAME, UNITSINSTOCK FROM PRODUCTS ORDER BY UNITSINSTOCK DESC
+ 
+12.Find   all   products   that   are   low   on   stock   (quantity   less   than   6)
+SELECT * FROM PRODUCTS WHERE UnitsInStock < 6 
+
+13.Find   a   list   of   all   discontinued   products.
+SELECT * FROM PRODUCTS WHERE Discontinued LIKE '1'
+ 
+14.Find   a   list   of   all   products   that   have   Tofu   in   them.
+SELECT * FROM PRODUCTS WHERE ProductName LIKE ('%TOFU%')
+ 
+15.Find   the   product   that   has   the   highest   unit   price. 
+SELECT * FROM PRODUCTS 
+WHERE UnitPrice = (SELECT MAX (UNITPRICE) FROM PRODUCTS)
+
+16.Get   a   list   of   all   employees   who   got   hired   after   1/1/1993 
+SELECT * 
+FROM Employees 
+WHERE HireDate > '1993-01-01'
+
+17.Get   all   employees   who   have   title   :   “Ms.”   And   “Mrs.” 
+SELECT * FROM EMPLOYEES WHERE TitleOfCourtesy IN ('MS.','MRS.')
+
+18.Get   all   employees   who   have   a   Home   phone   number   that   has   area   code   206 
+SELECT * FROM EMPLOYEES WHERE HomePhone LIKE '(206)%'
